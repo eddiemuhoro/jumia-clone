@@ -1,0 +1,70 @@
+.jnav-container{
+    background-color: #fff;
+    border-bottom: 1px solid #ffffff;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    height: 60px;
+    position: relative;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+}
+
+.jumiaSearch{
+    color: maroon;
+    
+}
+
+.jleft , .jright{
+    display: flex;
+    align-items: center;
+    color: maroon;
+}
+.jbar{
+    margin: 10px;
+}
+.jsearch{
+    margin: 10px;
+    background-color: rgb(74, 80, 85);
+    border:  transparent 2px solid;
+}
+
+.jsearch span{
+    cursor: pointer;
+}
+
+.jsearch{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+    height: auto;
+    background-color: #ffffff;
+    border-radius: 5px;
+    
+  
+}
+input{
+    border: none;
+    width: 0;
+    outline: none;
+}
+
+.jsearch:hover >  input{
+    
+    width: 100%;
+    padding: 0 10px;
+    transition: .6s ease-in;
+}
+.jsearch:hover{
+    background-color: #ffffff;
+    border:  maroon 2px solid;
+}
+
+.jleft > div{
+    margin: 10px;
+    cursor: pointer;
+
+    font-size: 15px;
+}
