@@ -30,7 +30,7 @@
 
 .imageSliderStyles{
     position: relative;
-    height: 60vh;
+    height: 40vh;
     width: 100%;
    margin: 0 auto;
 }
@@ -41,9 +41,8 @@
 
 .advContainer{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 70vh;
+  
+    /* height: 70vh; */
     width: 100%;
     background-color: #f5f5f5;
 }
@@ -150,6 +149,10 @@ ul {
     .imageSliderStyles{
         height: 60vh;
         width: 50%;
+    }
+    .advContainer{
+        justify-content: center;
+        align-items: center;
     }
 }
     
