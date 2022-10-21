@@ -7,14 +7,14 @@ const SingleItem = () => {
 
     const[items, setItems]= useState([]);
 
-    useEffect(()=>{
-        async function fetchData(){
-            const res = await axios(`/item/${params.name}`);
-            console.log(res.data);
-            setItems(res.data);
-        }
-            fetchData()
-    }, [])
+    useEffect(() => {
+        axios.request("https://mighty-shelf-04623.herokuapp.com/item").then(function(responce){
+            console.log(responce.data)
+            setItems(responce.data)
+        }).catch(function(error){
+            console.log(error)
+        })
+      }, []);
   return (
     <div>
         <h1>{items.name}</h1>

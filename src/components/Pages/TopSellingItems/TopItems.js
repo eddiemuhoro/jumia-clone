@@ -5,13 +5,14 @@ import { NavLink } from 'react-router-dom'
 import './top.css'
 const TopItems = () => {
 const [items, setItems]= useState([])
-useEffect(()=>{
-    async function fetchData(){
-        const res = await axios ('/item')
-        setItems(res.data)
-    }
-    fetchData()
-}, [])
+useEffect(() => {
+    axios.request("https://mighty-shelf-04623.herokuapp.com/item").then(function(responce){
+        console.log(responce.data)
+        setItems(responce.data)
+    }).catch(function(error){
+        console.log(error)
+    })
+  }, []);
 
 
 
