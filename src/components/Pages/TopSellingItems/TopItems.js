@@ -68,19 +68,19 @@ useEffect(() => {
 
             <h5>Top Selling Items</h5>
             <div className='seeAll'>
-               <p>See all</p>
+                <NavLink to='/topsellingitems'><p>See all</p></NavLink>
+               
                <NavigateNext/>
             </div>
             
         </div>
         <div className='topImages'>
                 {items.map((item )=>(
-                    <NavLink to={`/product/`+ item.name} key={item.id} className=''>
-                        <div key={item.id} className=' topSelling'>
+                    <NavLink to={`/`+ item.previousPrice} key={item.id} className=''>
+                        <div key={item.name} className=' topSelling'>
                             <img src={item.image} alt={item.title}/>                            
                             <h4>{item.name}</h4>
                             <h5>{item.previousPrice}</h5>
-                            <p>{item.id}</p>
                             {console.log(item.id)}
                             {console.log(item.name)}
                             <div className='percentageDiscount'>

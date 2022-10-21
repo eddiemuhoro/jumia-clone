@@ -10,6 +10,7 @@ import FlashSales from './components/Pages/FlashSales/FlashSales';
 import Timer from './components/Pages/FlashSales/CountDown/CountDown';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import PageNotFound from './components/Pages/PageNotFound';
 
 function App() {
 
@@ -59,19 +60,23 @@ function App() {
     <div className="App">
       
       <Jnavbar/>
-      <Categories/>
-    
-     
+      
 
 
-      <TopItems/> 
 
 
         <Routes>
+        
+          <Route path="/" element={<>
+              <Advert/> 
+              <Categories/> 
+              <TopItems/>
+              <FlashSales/>
+          </>}/>
           
-              <Route path="/" element={ <TopItems/> }/>
-               <Route path='/product/:id' element={<SingleItem/>} />
-
+              <Route path='topSellingItems' element={<TopItems/>}/>
+              <Route path='/:name' element={<SingleItem/>}/>
+              <Route path="/jhg" element={<PageNotFound />} />
         </Routes>
      
 

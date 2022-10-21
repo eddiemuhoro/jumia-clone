@@ -8,7 +8,7 @@ const SingleItem = () => {
     const[items, setItems]= useState([]);
 
     useEffect(() => {
-        axios.request(`/item/${params.name}`).then(function(responce){
+        axios.request(`/${params.previousPrice}`).then(function(responce){
             console.log(responce.data)
             setItems(responce.data)
         }).catch(function(error){
@@ -20,7 +20,6 @@ const SingleItem = () => {
         <h1>{items.name}</h1>
         <img src={items.image} alt={items.name} />
 
-        Purchace your order
     </div>
   )
 }
