@@ -64,13 +64,13 @@ function App() {
      
 
 
-
+      <TopItems/> 
 
 
         <Routes>
           
               <Route path="/" element={ <TopItems/> }/>
-               <Route path='/item/:id' element={<SingleItem/>} />
+               <Route path='/product/:id' element={<SingleItem/>} />
 
         </Routes>
      

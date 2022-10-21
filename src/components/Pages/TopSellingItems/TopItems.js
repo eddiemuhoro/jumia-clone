@@ -6,7 +6,7 @@ import './top.css'
 const TopItems = () => {
 const [items, setItems]= useState([])
 useEffect(() => {
-    axios.request("http://localhost:5000/item").then(function(responce){
+    axios.request("/item").then(function(responce){
         console.log(responce.data)
         setItems(responce.data)
     }).catch(function(error){
@@ -75,10 +75,9 @@ useEffect(() => {
         </div>
         <div className='topImages'>
                 {items.map((item )=>(
-                    <NavLink to={`/item/`+ item.name} key={item.id} className=''>
+                    <NavLink to={`/product/`+ item.name} key={item.id} className=''>
                         <div key={item.id} className=' topSelling'>
-                            <img src={item.image} alt={item.title}/>
-                            
+                            <img src={item.image} alt={item.title}/>                            
                             <h4>{item.name}</h4>
                             <h5>{item.previousPrice}</h5>
                             <p>{item.id}</p>
