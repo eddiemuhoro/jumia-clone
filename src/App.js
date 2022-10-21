@@ -76,7 +76,7 @@ function App() {
           
               <Route path='topSellingItems' element={<TopItems/>}/>
               <Route path='/:name' element={<SingleItem/>}/>
-              <Route path="/jhg" element={<PageNotFound />} />
+              <Route path="/item" element={<PageNotFound />} />
         </Routes>
      
 
