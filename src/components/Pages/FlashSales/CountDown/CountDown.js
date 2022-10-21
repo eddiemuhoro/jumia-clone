@@ -7,11 +7,11 @@ const Timer = () => {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
 
-  const deadline = "December, 31, 2022";
+  const deadline = "October, 31, 2022";
 
   const getTime = () => {
     const time = Date.parse(deadline) - Date.now();
-
+    
     setDays(Math.floor(time / (1000 * 60 * 60 * 24)));
     setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
     setMinutes(Math.floor((time / 1000 / 60) % 60));
@@ -31,8 +31,6 @@ const Timer = () => {
                 <div className="timer__number">{hours}h</div>
                 <div className="timer__number">{minutes}m</div>
                 <div className="timer__number">{seconds}s</div>
-                
-
     </div>
   );
 };
