@@ -7,7 +7,7 @@ const TopItems = () => {
 const [items, setItems]= useState([])
 useEffect(() => {
     async function fetchData() {
-        const res = await axios("/item", { validateStatus: false });
+        const res = await axios("/item");
         console.log("RES", res.data);
         setItems(res.data);
     }
