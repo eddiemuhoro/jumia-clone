@@ -78,7 +78,7 @@ const FlashSales = () => {
         </div>
         <div className='topImages'>
                 {items.map((item )=>(
-                  <Link to ='/flash'>
+                  <Link to ={'/flash/'+ item.title}>
                         <div key={item.id} className=' topSelling'>
                             <img src={item.image} alt={item.title}/>
                             <h4>{item.title}</h4>

@@ -6,13 +6,13 @@ import './top.css'
 const TopItems = () => {
 const [items, setItems]= useState([])
 useEffect(() => {
-    axios.request("/item").then(function(responce){
-        console.log(responce.data)
-        setItems(responce.data)
-    }).catch(function(error){
-        console.log(error)
-    })
-  }, []);
+    async function fetchData() {
+        const res = await axios("/item", { validateStatus: false });
+        console.log("RES", res.data);
+        setItems(res.data);
+    }
+    fetchData();
+}, []);
 
 
 
