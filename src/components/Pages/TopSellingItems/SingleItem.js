@@ -8,7 +8,7 @@ const SingleItem = () => {
     const[items, setItems]= useState([]);
 
     useEffect(() => {
-        axios.request(`/${params.previousPrice}`, { validateStatus: false }).then(function(responce){
+        axios.request(`/${params.previousPrice}`).then(function(responce){
             console.log(responce.data)
             setItems(responce.data)
         }).catch(function(error){
