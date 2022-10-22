@@ -7,12 +7,22 @@ const TopItems = () => {
 const [items, setItems]= useState([])
 useEffect(() => {
     async function fetchData() {
-        const res = await axios("/item");
-        console.log("RES", res.data);
-        setItems(res.data);
-    }
+        var res = null;
+        try {
+             res = await axios("/item");
+        } catch (error) {
+            res= error.responce
+        } finally{
+            setItems(res.data);
+        }
+    //     const res = await axios("/item");
+    //     console.log("RES", res.data);
+    //     setItems(res.data);
+    // }
+        }
     fetchData();
 }, []);
+
 
 
 
