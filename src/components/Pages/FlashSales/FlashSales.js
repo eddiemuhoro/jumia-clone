@@ -78,12 +78,12 @@ const FlashSales = () => {
         </div>
         <div className='topImages'>
                 {items.map((item )=>(
-                  <Link to ={'/flash/'+ item.title}>
+                  <Link to ={'/flash/'+ item.title} key={item.id}>
                         <div key={item.id} className=' topSelling'>
                             <img src={item.image} alt={item.title}/>
                             <h4>{item.title}</h4>
-                            <h5>{item.price}</h5>
-                            <p>{item.undiscountedPrice}</p>
+                            <h5>Ksh {item.price}</h5>
+                            <p>Ksh {item.undiscountedPrice}</p>
                             <div className='percentageDiscount'>
                             <p >-12%</p>
                             </div>

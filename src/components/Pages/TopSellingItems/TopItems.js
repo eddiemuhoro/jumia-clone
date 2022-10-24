@@ -1,77 +1,23 @@
 import { NavigateNext } from '@material-ui/icons'
 import axios from 'axios'
+import { onSnapshot } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { productsCollectionRef } from '../../../lib/firestoreCollections'
 import './top.css'
 const TopItems = () => {
-const [items, setItems]= useState([])
-useEffect(() => {
-    async function fetchData() {
-        var res = null;
-        try {
-             res = await axios("/item");
-        } catch (error) {
-            res= error.responce
-        } finally{
-            setItems(res.data);
-        }
-    //     const res = await axios("/item");
-    //     console.log("RES", res.data);
-    //     setItems(res.data);
-    // }
-        }
-    fetchData();
-}, []);
 
+  
+        const [items, setItems] = useState([]);
+        useEffect(()=>{
+            const unSubscribe= onSnapshot(productsCollectionRef, snapshot=>{
+                setItems(snapshot.docs.map(doc=> ({id:doc.id, data: doc.data()})))
+            })
+            return ()=>{
+                unSubscribe()
+            }
+        }, [])
 
-
-
-//   const items=[
-//     {
-//         image:require('./TopSellingImages/lenovo.jpg'),
-//         title:'Lenovo Laptop',
-//         price: 'Ksh 12,400',
-//         undiscountedPrice: 'Ksh 15,000',
-//         id:1
-
-//     },
-//     {
-//         image:require('./TopSellingImages/tecno.jpg'),
-//         title:'Tecno Camon 16',
-//         price: 'Ksh 20,300',
-//         undiscountedPrice: 'Ksh 22,340',
-//         id:2
-//     },
-//     {
-//         image:require('./TopSellingImages/redmi.jpg'),
-//         title:'Redmi 9A',
-//         price:'Ksh 16,400',
-//         undiscountedPrice: 'Ksh 18,230',
-//         id:3
-//     },
-//     {
-//         image:require('./TopSellingImages/sumsang.jpg'),
-//         title:'Samsung Galaxy A12',
-//         price: 'Ksh 23,300',
-//         undiscountedPrice: 'Ksh 25,620',
-//         id:4
-//     },
-//     {
-//         image:require('./TopSellingImages/dstv.jpg'),
-//         title:'DSTV',
-//         price: 'Ksh 3,000',
-//         undiscountedPrice: 'Ksh 3,500',
-//         id:5
-    
-//     },
-//     {
-//         image:require('./TopSellingImages/nexus.jpg'),
-//         title:'Nexus Kettle',
-//         price: 'Ksh 4,400',
-//         undiscountedPrice: 'Ksh 5,600',
-//         id:6
-//     }
-// ]
   return (
     <div className='topSellingItemsContainer'>
         <div className='topItemsTitle'>
@@ -86,15 +32,14 @@ useEffect(() => {
         </div>
         <div className='topImages'>
                 {items.map((item )=>(
-                    <NavLink to={`/`+ item.previousPrice} key={item.id} className=''>
-                        <div key={item.name} className=' topSelling'>
-                            <img src={item.image} alt={item.title}/>                            
-                            <h4>{item.name}</h4>
-                            <h5>{item.previousPrice}</h5>
-                            {console.log(item.id)}
-                            {console.log(item.name)}
+                    <NavLink to={`/topSellingItems/`+ item.id} key={item.id} className=''>
+                        <div key={item.id} className=' topSelling'>
+                                <img src={item.data.imageUrl} alt={item.data.name}/>                            
+                                <h4>{item.data.name}</h4>
+                                <h5>Ksh {item.data.currentPrice}</h5>
+                                <p>Ksh {item.data.prevPrice}</p>
                             <div className='percentageDiscount'>
-                            <p>-12%</p>
+                                <p>-12%</p>
                             </div>
                         </div>
                     </NavLink>
@@ -106,3 +51,4 @@ useEffect(() => {
 }
 
 export default TopItems
+

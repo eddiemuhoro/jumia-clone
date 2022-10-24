@@ -11,6 +11,8 @@ import Timer from './components/Pages/FlashSales/CountDown/CountDown';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import PageNotFound from './components/Pages/PageNotFound';
+import FirebaseTopItems from './components/FirebaseProducts/FirebaseTopItems';
+import AddTopItems from './components/FirebaseAdmin/AddTopItems';
 
 function App() {
 
@@ -63,23 +65,22 @@ function App() {
       
 
 
+      <main>
 
-
-        <Routes>
-        
-          <Route path="/" element={<>
-              <Advert/> 
-              <Categories/> 
-              <TopItems/>
-              <FlashSales/>
-          </>}/>
-          
-              <Route path='topSellingItems' element={<TopItems/>}/>
-              <Route path='/:name' element={<SingleItem/>}/>
-              <Route path="/item" element={<PageNotFound />} />
-        </Routes>
+            <Routes>
+            
+              <Route path="/" element={<>
+                <Advert/>
+                  <Categories/> 
+                  <TopItems/>
+                  <FlashSales/>
+                    </>}/>
+                  <Route path='admin' element={<AddTopItems/>}/>
+                  <Route path='topSellingItems' element={<TopItems/>}/>
+                  <Route path='topSellingItems/:id' element={<SingleItem/>}/>
+            </Routes>
      
-
+        </main>
     </div>
   );
 }
