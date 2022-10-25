@@ -4,7 +4,7 @@ import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/
 import React, { useState } from 'react'
 import { db } from '../../lib/init-firebase'
 
-const AddTopItems = () => {
+const AddTelevison = () => {
     const [name, setName]= useState('')
     const [currentPrice, setCurrentPrice]= useState('')
     const [prevPrice, setPrevPrice]= useState('')
@@ -42,7 +42,7 @@ const AddTopItems = () => {
           getDownloadURL(uploadTask.snapshot.ref)
           .then((imageUrl)=>{
             console.log('file available at' , imageUrl);
-            const resourceCollectionRef = collection(db, 'products')
+            const resourceCollectionRef = collection(db, 'televisons')
             //add values to firestore firebase
             if(name=== '' || desc ===''){
               return
@@ -61,7 +61,7 @@ const AddTopItems = () => {
   return (
     <div>
       
-    <h4>Add Top items</h4>
+    <h2>Add Televisions</h2>
     <FormControl className='form-control'>
         
         <TextField 
@@ -136,4 +136,4 @@ const AddTopItems = () => {
   )
 }
 
-export default AddTopItems
+export default AddTelevison

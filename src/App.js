@@ -13,6 +13,10 @@ import axios from 'axios';
 import PageNotFound from './components/Pages/PageNotFound';
 import FirebaseTopItems from './components/FirebaseProducts/FirebaseTopItems';
 import AddTopItems from './components/FirebaseAdmin/AddTopItems';
+import AddTelevison from './components/FirebaseAdmin/AddTelevision';
+import AddBeauty from './components/FirebaseAdmin/AddBeauty';
+import Televisions from './components/Pages/televisions/Televisions';
+import SingleCategory from './components/Pages/Categories/SingleCategory';
 
 function App() {
 
@@ -75,9 +79,18 @@ function App() {
                   <TopItems/>
                   <FlashSales/>
                     </>}/>
-                  <Route path='admin' element={<AddTopItems/>}/>
+                  <Route path='admin' element={
+                    <>
+                      <AddTopItems/>
+                      <AddTelevison/>
+                      <AddBeauty />
+                    </>
+                    
+                }
+                  />
                   <Route path='topSellingItems' element={<TopItems/>}/>
                   <Route path='topSellingItems/:id' element={<SingleItem/>}/>
+                  <Route path='categories/:title' element={<SingleCategory/>}/>
             </Routes>
      
         </main>
