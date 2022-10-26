@@ -3,16 +3,15 @@ import axios from 'axios';
 import { onSnapshot } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import {useParams} from 'react-router-dom'
-import { productsCollectionRef } from '../../../lib/firestoreCollections';
-import Jnavbar from '../../JumiaNav/Jnavbar';
-import './single-item.css'
-const SingleItem = () => {
+import {  televisionsCollectionRef } from '../../../lib/firestoreCollections';
+import '..//TopSellingItems/single-item.css'
+const SingleTv= () => {
     const params = useParams();
     console.log("current params", params.id);
 
     const [items, setItems] = useState([]);
     useEffect(()=>{
-        const unSubscribe= onSnapshot(productsCollectionRef , snapshot=>{
+        const unSubscribe= onSnapshot(televisionsCollectionRef , snapshot=>{
             setItems(snapshot.docs.map(doc=> ({id:doc.id, data: doc.data()})))
         })
         return ()=>{
@@ -94,4 +93,4 @@ const SingleItem = () => {
   )
 }
 
-export default SingleItem
+export default SingleTv

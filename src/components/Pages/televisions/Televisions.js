@@ -22,7 +22,7 @@ const Televisions = () => {
     <div className='topSellingItemsContainer'>
         <div className='topItemsTitle'>
 
-            <h5>Top Selling Items</h5>
+            <h5>Televisions</h5>
             <div className='seeAll'>
                 <NavLink to='/topsellingitems'><p>See all</p></NavLink>
                
@@ -32,7 +32,7 @@ const Televisions = () => {
         </div>
         <div className='topImages'>
                 {items.map((item )=>(
-                    <NavLink to={`/topSellingItems/`+ item.id} key={item.id} className=''>
+                    <NavLink to={`/televisions/${item.id}`} key={item.id} className=''>
                         <div key={item.id} className=' topSelling'>
                                 <img src={item.data.imageUrl} alt={item.data.name}/>                            
                                 <h4>{item.data.name}</h4>

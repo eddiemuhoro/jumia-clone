@@ -7,6 +7,7 @@ hr{
 
 .productDesc h2 {
     font-weight: 400;
+    font-size: 20px;
 }
 
 Button{
@@ -41,6 +42,9 @@ Button{
 .singleProduct > div{
     margin: 20px;
 }
+.singleItemImage{
+    text-align: center;
+}
 .singleProduct{
     display: flex;
     align-items: center;
@@ -55,6 +59,9 @@ Button{
 .singleItemImage, .productDesc{
     background-color: #fff;
     
+}
+.singleItemImage img{
+    max-width: 300px;
 }
 .deliveries{
     display: flex;
@@ -97,5 +104,8 @@ Button{
     }
     .imageanAndDesc{
         flex-direction: column;
+    }
+    .singleProduct{
+        justify-content: center;
     }
 }

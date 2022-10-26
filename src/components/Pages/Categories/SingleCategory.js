@@ -1,5 +1,5 @@
 import React from 'react'
-import {useParams} from 'react-router-dom'
+import {Link, useParams} from 'react-router-dom'
 import Beauty from '../televisions/Beauty'
 import Televisions from '../televisions/Televisions'
 const SingleCategory = () => {
@@ -60,7 +60,6 @@ console.log("found", found);
     <div>
         {found && (
             <div>
-                {found.title}
                 {found.component}
             </div>
         )}

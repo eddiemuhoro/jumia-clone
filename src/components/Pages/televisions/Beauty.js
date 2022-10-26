@@ -22,7 +22,7 @@ const Beauty = () => {
     <div className='topSellingItemsContainer'>
         <div className='topItemsTitle'>
 
-            <h5>Top Selling Items</h5>
+            <h5>Beauty Products</h5>
             <div className='seeAll'>
                 <NavLink to='/topsellingitems'><p>See all</p></NavLink>
                

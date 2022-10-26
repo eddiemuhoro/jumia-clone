@@ -1,0 +1,83 @@
+.topPicksCont{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.topPicksCont > a{
+    margin: 10px;
+}
+.topPicksCont > a{
+    text-decoration: none;
+    color: black;
+}
+
+.singlePick img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.singlePick img:hover{
+    transform: scale(0.97);
+    transition: .2s ease-in-out;
+}
+
+
+.topPicksCont  a :hover{
+    text-decoration: none;
+    color: black;
+    box-shadow: inset 0 0 6px 0 rgb(0 0 0 / 50%);
+    transition: .2s ease-in-out;
+
+}
+
+.container-element{
+    height: auto;
+    width: 200px;
+    position: relative;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+}
+
+.singlePick h4{
+    font-size: 20px;
+    font-weight: 500;
+    margin:0 0 5px 0;
+    text-decoration: none;
+}
+.singlePick h5{
+    font-size: 15px;
+    font-weight: 500;
+    margin:0 0 5px 0;
+    text-decoration: none;
+    color: green;
+}
+
+.singlePick p{
+    font-size: 12px;
+    font-weight: 500;
+    margin-top:0;
+    text-decoration: line-through;
+    color: gray;
+}
+
+.percentageDiscount{
+    background-color: maroon;
+    color: #fff;
+    padding: 0 5px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    margin: 0 5px;
+    top: 5px;
+    right: 5px;
+    position: absolute;
+    text-decoration: none;
+}
+.percentageDiscount p{
+    color: white;
+    text-decoration: none;
+}

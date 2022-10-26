@@ -17,6 +17,11 @@ import AddTelevison from './components/FirebaseAdmin/AddTelevision';
 import AddBeauty from './components/FirebaseAdmin/AddBeauty';
 import Televisions from './components/Pages/televisions/Televisions';
 import SingleCategory from './components/Pages/Categories/SingleCategory';
+import Jfooter from './components/JumiaFooter/Jfooter';
+import AddTopPicks from './components/FirebaseAdmin/AddTopPicks';
+import TopPicks from './components/Pages/ForYou/TopPicks';
+import SingleTopPick from './components/Pages/ForYou/SingleTopPick';
+import SingleTv from './components/Pages/televisions/SingleTv';
 
 function App() {
 
@@ -78,9 +83,11 @@ function App() {
                   <Categories/> 
                   <TopItems/>
                   <FlashSales/>
+                  <TopPicks/>
                     </>}/>
                   <Route path='admin' element={
                     <>
+                      <AddTopPicks/>
                       <AddTopItems/>
                       <AddTelevison/>
                       <AddBeauty />
@@ -89,11 +96,18 @@ function App() {
                 }
                   />
                   <Route path='topSellingItems' element={<TopItems/>}/>
+                  <Route path='toppicks' element={<TopPicks/>}/>
+                  <Route path='toppicks/:id' element={<SingleTopPick/>}/>
                   <Route path='topSellingItems/:id' element={<SingleItem/>}/>
+                  <Route path='televisions/:id' element={<SingleTv/>}/>
+
+
                   <Route path='categories/:title' element={<SingleCategory/>}/>
             </Routes>
      
         </main>
+
+        <Jfooter/>
     </div>
   );
 }

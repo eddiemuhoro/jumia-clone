@@ -129,6 +129,10 @@
     flex-direction: column;
     justify-content: center;
     height: 100%;
+
+}
+.rightPart h3{
+    color: #000;
 }
 ul {
     height: 100%;
