@@ -82,9 +82,7 @@ const SingleTv= () => {
                     <p>Return within 7 days of delivery</p>
                   </div>
                 </div>
-
             </div>  
-
           </div>
           
     )}

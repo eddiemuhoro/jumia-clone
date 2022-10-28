@@ -1,5 +1,6 @@
 body{
     background-color: #f2f2f2;
+   
 }
 hr{
     color: gray;
@@ -25,6 +26,7 @@ Button{
 }
 .container{
     display: flex;
+    
 }
 .prevPriceSection{
     display: flex;
@@ -54,6 +56,8 @@ Button{
     margin: 20px;
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
     transition: all 0.3s ease-in-out;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .singleItemImage, .productDesc{
@@ -107,5 +111,6 @@ Button{
     }
     .singleProduct{
         justify-content: center;
+        width: 100%;
     }
 }

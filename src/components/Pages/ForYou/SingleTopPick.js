@@ -3,7 +3,11 @@ import React, { useEffect, useState } from 'react'
 import { topPicksCollectionRef } from '../../../lib/firestoreCollections';
 import { useParams } from 'react-router-dom';
 import { Button } from '@material-ui/core';
+import { useCart } from 'react-use-cart';
+import Cart from '../../Cart/Cart';
 const SingleTopPick = () => {
+
+
     const params = useParams();
     console.log("current params", params.id);
     const [items, setItems] = useState([]);
@@ -19,13 +23,38 @@ const SingleTopPick = () => {
     const found= items.find(item=>{
         return item.id === params.id
       })
-  
-      console.log("found", found);
+      
+
+      //cart
+      // const [cart, setCart] = useState([]);
+    
+      // console.log("found", found);
+      // const handleClicked = (found)=>{
+      //   const exist= cart.find(x=> x.id === found.id);
+      //   if(exist){
+      //     setCart(cart.map(x=> x.id === found.id ? {...exist, qty: exist.qty + 1} : x))
+      //   }else{
+      //     setCart([...cart, {...found, qty: 1}])
+      //   }
+      //   console.log(found.data);
+      //   console.log(cart)
+      // }
+
+      // const onAdd=(found)=>{
+      //   const exist = cart.find((x)=> x.id === found.id);
+      //   if(exist){
+      //     setCart(cart.map((x)=> x.id === found.id ? {...exist, qty: exist.qty + 1} : x))
+      //   }else{
+      //     setCart([...cart, {...found, qty: 1}])
+      //   }
+      // }
+       
+      
   return (
     <div>
          <div className='singleProduct'>
 
-{found && (
+  {found && (
   
   <div className='container'>
       <div className='imageanAndDesc' >
@@ -48,7 +77,7 @@ const SingleTopPick = () => {
                 <p className='prevP'>Ksh {found.data.prevPrice}</p>
                 <span>{Math.floor((found.data.prevPrice-found.data.currentPrice)/found.data.prevPrice * 100)}%</span>
               </div>
-              <Button variant="contained" fullWidth className='addButton'>
+              <Button variant="contained" fullWidth className='addButton' >
                     Add to cart
               </Button>
             </div>
@@ -81,14 +110,18 @@ const SingleTopPick = () => {
               </div>
             </div>
 
-        </div>  
+        </div>
+
 
       </div>
       
 )}
 
+
+  </div>
+         
+
 </div>
-    </div>
   )
 }
 

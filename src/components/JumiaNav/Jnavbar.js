@@ -19,7 +19,7 @@ const Jnavbar = () => {
                 <span><SearchOutlined/></span>
             </div>
             <div><Link to='/admin'  className='admin'> <AccountCircleOutlined /></Link></div>
-            <div><ShoppingCartOutlined/></div>
+            <div ><Link to = '/cart'><ShoppingCartOutlined/></Link></div>
         </div>
     </div>
   )

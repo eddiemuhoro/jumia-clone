@@ -22,51 +22,23 @@ import AddTopPicks from './components/FirebaseAdmin/AddTopPicks';
 import TopPicks from './components/Pages/ForYou/TopPicks';
 import SingleTopPick from './components/Pages/ForYou/SingleTopPick';
 import SingleTv from './components/Pages/televisions/SingleTv';
+import Cart from './components/Cart/Cart';
 
 function App() {
 
+  const [cartItems, setCartItems] = useState([]);
+  const onAdd=(product)=>{
+    const exist = cartItems.find(x => x.id === product.id)
+    if (exist){
+      setCartItems(cartItems.map(x => x.id === product.id ? {...exist, qty:exist.qty + 1} : x ))
+    }else{
+      setCartItems([...cartItems, {...product, qty:1}])
+    }
+  }
 
 
-//   const items=[
-//     {
-//         title:'Lenovo Laptop',
-//         price: 'Ksh 12,400',
-//         undiscountedPrice: 'Ksh 15,000',
-//         id:1
+  
 
-//     },
-//     {
-//         title:'Tecno Camon 16',
-//         price: 'Ksh 20,300',
-//         undiscountedPrice: 'Ksh 22,340',
-//         id:2
-//     },
-//     {
-//         title:'Redmi 9A',
-//         price:'Ksh 16,400',
-//         undiscountedPrice: 'Ksh 18,230',
-//         id:3
-//     },
-//     {
-//         title:'Samsung Galaxy A12',
-//         price: 'Ksh 23,300',
-//         undiscountedPrice: 'Ksh 25,620',
-//         id:4
-//     },
-//     {
-//         title:'DSTV',
-//         price: 'Ksh 3,000',
-//         undiscountedPrice: 'Ksh 3,500',
-//         id:5
-    
-//     },
-//     {
-//         title:'Nexus Kettle',
-//         price: 'Ksh 4,400',
-//         undiscountedPrice: 'Ksh 5,600',
-//         id:6
-//     }
-// ]
   return (
     <div className="App">
       
@@ -80,14 +52,12 @@ function App() {
             
               <Route path="/" element={<>
                 <Advert/>
-                  <Categories/> 
-                  <TopItems/>
-                  <FlashSales/>
+                <Categories/>
                   <TopPicks/>
                     </>}/>
                   <Route path='admin' element={
                     <>
-                      <AddTopPicks/>
+                      <AddTopPicks onAdd={onAdd}/>
                       <AddTopItems/>
                       <AddTelevison/>
                       <AddBeauty />
@@ -100,6 +70,7 @@ function App() {
                   <Route path='toppicks/:id' element={<SingleTopPick/>}/>
                   <Route path='topSellingItems/:id' element={<SingleItem/>}/>
                   <Route path='televisions/:id' element={<SingleTv/>}/>
+                  <Route path='cart' element={<Cart cartItems={cartItems}/>}/>
 
 
                   <Route path='categories/:title' element={<SingleCategory/>}/>
