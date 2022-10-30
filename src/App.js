@@ -54,6 +54,7 @@ function App() {
                 <Advert/>
                 <Categories/>
                   <TopPicks/>
+                  <FlashSales/>
                     </>}/>
                   <Route path='admin' element={
                     <>

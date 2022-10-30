@@ -31,12 +31,12 @@ const Footer = () => {
             <div className='contact-us'>
                 <h3>CONTACT US</h3>
                 <ul>
-                    <li>ELP CHAPTER DeKUT   </li> 
+                    <li>ONLINE SHOPPING   </li> 
 
                     <li><a href="tel:+254 791849836">+254 794183313</a></li>
 
                     <li className="footer-space"><a
-                            href="elcdekutchapter@gmail.com">eddiea@gmail.com</a></li>
+                            href="eddiemuho@gmail.com">eddiea@gmail.com</a></li>
 
 </ul>
             </div>
